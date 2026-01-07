@@ -1,77 +1,42 @@
-const navbar =()=>{
-    return `    <header >
-        <nav
-            class="flex items-center justify-between
-                   lg:px-40 lg:py-8
-                   md:px-12 md:py-6
-                   px-6 py-4
-                   max-w-400 mx-auto"
-            aria-label="Primary navigation">
+function navbar(){
 
-            <div>
-                <a href="#"
-                   class="text-3xl md:text-4xl font-extrabold tracking-tight
-                          hover:opacity-80 transition">
-                    <img class="h-auto w-auto" src="https://cdn.prod.website-files.com/683ec44242f0f35750675d4b/687a5f2bebc0dee7255e45f7_Clarity_logo_RGB%201.svg" alt="" srcset="">
-                </a>
-            </div>
+    const navmenu=[
+        {name:'Outerwear',link:'./Outerwear.html' },
+        {name:'Activewear',link:'./activewear.html' },
+        {name:'Bottoms',link:'./bottom.html' },
+        {name:'Sports Gear',link:'./sportgear.html' },
+        {name:'Accessories',link:'./Accessories.html' },
+    ]
 
-            <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-neutral-800">
-                <li>
-                    <a href="whatwedo.html" class="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-black hover:after:w-full after:transition-all">
-                        What we do
-                    </a>
-                </li>
-                <li>
-                    <a href="ourteam.html" class="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-black hover:after:w-full after:transition-all">
-                        Our team
-                    </a>
-                </li>
-                <li>
-                    <a href="Specialistsectors.html" class="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-black hover:after:w-full after:transition-all">
-                        Specialist sectors
-                    </a>
-                </li>
-                <li>
-                    <a href="Resources.html" class="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-black hover:after:w-full after:transition-all">
-                        Resources
-                    </a>
-                </li>
-                <li>
-                    <a href="About.html" class="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-black hover:after:w-full after:transition-all">
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="Contact.html" class="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-black hover:after:w-full after:transition-all">
-                        Contact
-                    </a>
-                </li>
+    let bag=navmenu.map((v)=>`<li><a href="${v.link}" class="hover:underline underline-offset-4">${v.name}</a></li>`)
+
+
+    return `<nav class="bg-blue-600 w-full text-white flex items-center justify-between lg:px-16 lg:py-5 md:px:12 md:py:3 sm:px:10 sm:px:2" aria-label="Main navigation">
+
+          
+            <a href="../pages/home.html" class="text-4xl font-extrabold tracking-wide hover:opacity-90 transition">
+                Patagonia
+            </a>
+
+            
+             <ul class=" hidden lg:flex items-center gap-12 sm:gap-5 md:gap-8 font-semibold  lg:text-xl md:text-lg ">
+             ${bag.join(' ')}
             </ul>
 
-            <div class="flex items-center gap-6 text-sm font-medium">
-                <a href="login.html"
-                   class="text-neutral-700 hover:text-black transition">
-                    Log in
+            
+            <div class="flex gap-3">
+                <a href="./signin.html"
+                    class="rounded-full bg-black px-6 py-2 font-semibold hover:bg-gray-900  focus-visible:outline-2 focus-visible:outline-white transition">
+                    Sign in </a>
+                <a href="./signup.html" class="rounded-full border border-white px-6 py-2  font-semibold
+                       hover:bg-white hover:text-blue-600 
+                       focus-visible:outline-2 focus-visible:outline-white transition">
+                    Sign up
                 </a>
-
-                <a href="bookademo.html"
-                   class="inline-flex items-center justify-center
-                          bg-black text-white px-6 py-2.5 rounded-full
-                          shadow-sm
-                          transition-all hover:shadow-md hover:-translate-y-0.5
-                          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
-                    Book a demo
-                </a>
+                <a class="flex lg:hidden text-2xl justify-center items-center hover:bg-black transition text-white rounded-md" href=""><i class="fa-solid fa-list lg:hidden flex"></i></a>
             </div>
 
-        </nav>
-    </header>
-`
+        </nav>`
 }
 
-document.getElementById('navbar').innerHTML=navbar()
-
-
-
-// console.log(navbar());
+document.getElementById('navbar').innerHTML = navbar()
